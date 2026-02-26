@@ -1,4 +1,4 @@
-const inputTafera = document.querySelector('.input-tarefa');
+const inputTarefa = document.querySelector('.input-tarefa');
 const btnTarefa = document.querySelector('.btn-tarefa');
 const tarefas = document.querySelector('.tarefas'); 
 
@@ -8,8 +8,16 @@ function criaLi(){
 }
 
 inputTarefa.addEventListener('keypress', function(e){
-    
-})
+    if (e.keyCode === 13){
+        if(!inputTarefa.value) return;
+        criarTarefa(inputTafera.value);
+        inputTarefa.value = '';
+    }
+});
+
+function limparInput(){
+    inputTarefa.value = '';
+}
 
 function criarTarefa(textoInput){
     const li = criaLi();
@@ -18,5 +26,5 @@ function criarTarefa(textoInput){
 }
 
 btnTarefa.addEventListener('click', function(){
-    if(!inputTafera.value) return;
+    if(!inputTarefa.value) return;
 })
